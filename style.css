@@ -1,0 +1,422 @@
+/* Global*/
+* {
+  /* Typography */
+  font-family: Georgia, serif;
+
+  /* Visual */
+  outline: none;
+}
+
+body {
+  /* Box-model */
+  overflow: hidden;
+
+  /* Visual */
+  background-color: papayawhip;
+}
+
+.button {
+  /* Typography */
+  color: indigo;
+  text-align: center;
+
+  /* Visual */
+  background: none;
+  border: none;
+
+  /* Visual */
+  transition: .3s;
+}
+
+.button:hover {
+  /* Typography */
+  color: turquoise;
+}
+
+.button:active {
+  /* Typography */
+  color: #003153;
+}
+
+.button:disabled {
+  /* Visual */
+  opacity: 0.6;
+}
+
+/* Homepage */
+.title {
+  /* Positioning */
+  position: absolute;
+  top: 10%;
+  left: 24%;
+
+  /* Typography */
+  font-size: 8vw;
+  color: black;
+  text-align: center;
+  text-decoration: underline;
+}
+
+input[type=url] {
+  /* Positioning */
+  position: absolute;
+  top: 48%;
+  left: 12%;
+
+  /* Box-model */
+  width: 64%;
+  height: 18%;
+  padding: 0 4vw 0 4vw;
+
+  /* Typography */
+  font-size: 2vw;
+  text-align: left;
+
+  /* Visual */
+  border: 0.8vw solid black;
+  border-radius: 4vw 4vw 0 0;
+}
+
+#submit {
+  /* Positioning */
+  position: absolute;
+  top: 75%;
+  left: 33%;
+
+  /* Typography */
+  font-size: 3.6vw;
+}
+
+#submit img {
+  /* Typography */
+  vertical-align: middle;
+}
+
+#submit:disabled:hover {
+  /* Typography */
+  color: indigo;
+}
+
+.popbox {
+  /* Positioning */
+  position: absolute;
+  top: 25%;
+  left: 24%;
+  z-index: 1;
+
+  /* Box-model */
+  display: none;
+  width: 50%;
+  height: 42%;
+  padding-top: 15vh;
+
+  /* Typography */
+  font-size: 2.5vw;
+  color: crimson;
+  text-align: center;
+
+  /* Visual */
+  background: white;
+  border: 0.8vw solid black;
+  border-radius: 50% 50% 0 0;
+}
+
+#yes {
+  /* Positioning */
+  position: absolute;
+  top: 80%;
+  left: 84%;
+}
+
+/* Play Page */
+.name {
+  /* Positioning */
+  position: relative;
+
+  /* Typography */
+  font-size: 2vw;
+  color: black;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.clock {
+  /* Box-model */
+  margin-top: -3vh;
+
+  /* Typography */
+  font-family: monospace;
+  font-size: 2vw;
+  color: black;
+  text-align: center;
+}
+
+#back {
+  /* Positioning */
+  position: fixed;
+  left: 3vw;
+  top: 5vh;
+
+  /* Typography */
+  font-size: 1.6vw;
+  line-height: 1.6vw;
+  text-align: left;
+}
+
+video {
+  /* Positioning */
+  position: absolute;
+  left: 12%;
+  top: 15%;
+
+  /* Box-model */
+  width: 75%;
+  height: 75%;
+
+  /* Visual */
+  background: black;
+  border-bottom: 1px solid black; /* for border jag */
+}
+
+video::-webkit-media-controls { /* for Chrome fullscreen issue */
+  /* Box-model */
+  display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+#video-container:fullscreen video{
+  /* Positioning */
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* Box-model */
+  width: 100%;
+  height: 100%
+}
+
+#video-container:fullscreen .seekbar-container{
+  /* Visual */
+  opacity: 0;
+  transition: .3s;
+}
+
+#video-container:fullscreen .seekbar-container:hover{
+  /* Visual */
+  opacity: 1;
+}
+
+#video-container:fullscreen .control{
+  /* Visual */
+  opacity: 0;
+  transition: .3s;
+}
+
+#video-container:fullscreen .control:hover{
+  /* Visual */
+  opacity: 1;
+}
+
+/* Controls */
+.seekbar-container {
+  /* Positioning */
+  position: absolute;
+  top: 90%;
+  left: calc(12% - 2px);
+
+  /* Box-model */
+  width: 75%;
+}
+
+.seekbar {
+  /* Positioning */
+  z-index: 3;
+
+  /* Box-model */
+  width: 100%;
+  height: 2vh;
+
+  /* Visual */
+  background: grey;
+  border-radius: 0.2vw;
+  -webkit-appearance: none;
+}
+
+.seekbar::-webkit-slider-thumb {
+  /* Box-model */
+  width: 0.2vw;
+  height: 2.5vh;
+
+  /* Visual */
+  background: turquoise;
+  -webkit-appearance: none;
+}
+
+.seekbar-container:hover #cursor-time, .seekbar-container:hover #pin {
+  /* Box-model */
+  display: block;
+}
+
+#cursor-time {
+  /* Positioning */
+  position: absolute;
+  top: -2vh;
+
+  /* Box-model */
+  display: none;
+
+  /* Typography */
+  font-family: monospace;
+  font-size: 1.8vh;
+  color: #003153;
+
+  /* Visual */
+  background-color: gold;
+}
+
+#pin {
+  /* Positioning */
+  position: absolute;
+  top: 0.2vh;
+  z-index: 4;
+
+  /* Box-model */
+  display: none;
+  width: 0.12vw;
+  height: 2vh;
+
+  /* Typography */
+  pointer-events: none;
+
+  /* Visual */
+  background: darkturquoise;
+  opacity: 0.7;
+}
+
+.control {
+  /* Positioning */
+  position: absolute;
+  left: 27%;
+  top: 93%;
+  z-index: 3;
+
+  /* Box-model */
+  width: 42%;
+  height: 5.6vh;
+  padding: 1vh 0 0 1vw;
+
+  /* Visual */
+  background-color: rgba(255, 239, 213, 0.6);
+  border-radius: 2vw 2vw 0 0;
+}
+
+.control-button {
+  /* Box-model */
+  float: left;
+  width: 5vw;
+  height: 5vh;
+  margin-right: 2vw;
+
+  /* Typography */
+  font-size: 1.6vw;
+}
+
+.control-button:disabled {
+  /* Typography */
+  color: silver;
+}
+
+.speed-selector {
+  /* Positioning */
+  position: relative;
+  z-index: 5;
+
+  /* Box-model */
+  display: inline-block;
+}
+
+#speed-switch {
+  /* Positioning */
+  position: relative;
+
+  /* Box-model */
+  width: 5vw;
+  height: 5vh;
+
+  /* Typography */
+  font-size: 1.6vw;
+  color: indigo;
+
+  /* Visual */
+  border-radius: 1vw 1vw 0 0;
+}
+
+.speed-dropdown {
+  /* Positioning */
+  position: absolute;
+  bottom: 5vh;
+
+  /* Box-model */
+  display: none;
+  min-width: 5vw;
+}
+
+.speed-dropdown button {
+  /* Box-model */
+  display: block;
+  width: 5vw;
+  height: 4vh;
+  margin-bottom: 0.5vh;
+
+  /* Typography */
+  font-size: 1.2vw;
+  color: black;
+
+  /* Visual */
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 1vw 1vw 0 0;
+  transition: .3s;
+}
+
+.speed-dropdown button:hover {
+  /* Typography */
+  color: crimson;
+
+  /* Visual */
+  background: white;
+  border: 0.1vw solid black;
+}
+
+.speed-selector:hover .speed-dropdown {
+  /* Box-model */
+  display: block;
+}
+
+.speed-selector:hover #speed-switch {
+  /* Typography */
+  color: crimson;
+
+  /* Visual */
+  background-color: white;
+  border: 0.1vw solid black;
+}
+
+#screenshot:hover {
+  /* Visual */
+  background-color: silver;
+  border-radius: 1.2vw;
+}
+
+#screenshot:active {
+  /* Visual */
+  background-color: black;
+}
+
+#screenshot:disabled:hover {
+  /* Visual */
+  background: none;
+}

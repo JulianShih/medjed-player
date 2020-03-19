@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <title>Medjed Player</title>
+</head>
+<body onload="resetInput()">
+<div id="input-container">
+  <p class="title">Medjed Player</p>
+  <div class="data">
+    <input id="url" oninput="toggleSubmitButtonIfEmpty()" placeholder="請輸入mp4影片網址。 Please enter a mp4 URL." type="url">
+    <button class="button" disabled id="submit" onclick="submitUrl()" type="submit">Play Now! 播放!<img src="medjed.gif" alt="go">
+    </button>
+  </div>
+</div>
+<div class="popbox" id="error">
+  <div id="message">
+  </div>
+  <button class="button control-button" id="yes" onclick="retryInput()"><img src="medjed.gif" alt="go"></button>
+</div>
+<div id="player-container" style="display:none;">
+  <p class="name" id="info">basename.mp4</p>
+  <div class="clock">
+    <div class="time-stamp" style="display: inline-block; width: 33%; text-align: center;">
+      <span class="clock" id="current">00:00:00.000</span>
+      <span class="clock"> / </span>
+      <span class="clock" id="duration">00:00:00.000</span>
+    </div>
+    <div id="percent" style="display: inline-block; width: 6%; text-align: right; background-color: PaleTurquoise;">
+      <span class="clock" id="progress">0</span>
+      <span class="clock">%</span>
+    </div>
+  </div>
+  <button class="button" id="back" onclick="backToInput()">◀ Back<br>　 回到主頁面<br></button>
+  <canvas id="canvas" style="display: none;"></canvas>
+  <a id="download"></a>
+
+  <div id="video-container">
+  <video id="video" crossorigin="anonymous" muted preload="auto" onloadedmetadata="setDuration()" onerror="loadError()"
+                              onended="resetVideo()" onclick="playOrPause()">
+  <source src="" type="video/mp4">
+  </video>
+
+  <div class="seekbar-container">
+    <input type="range" value="0" min="0" max="100" step="any" class="seekbar" id="seekbar"
+           onmousemove="showCursorTime(event)" onmousedown="startSeeking()" oninput="seek()"
+           onmouseup="endSeeking()">
+    <label id="cursor-time">00:00:00.000</label>
+    <div id="pin"></div>
+  </div>
+  <div class="control">
+    <button class="button control-button" id="play-pause" onclick="playOrPause()">▶</button>
+    <button class="button control-button" id="step-backward" onclick="stepBackward()">▕◀</button>
+    <button class="button control-button" id="step-forward" onclick="stepForward()">▶▏</button>
+    <div class="speed-selector">
+      <button class="button" id="speed-switch">1x</button>
+      <div class="speed-dropdown">
+        <button onclick="changeSpeedToHalf()">0.5x</button>
+        <button onclick="changeSpeedToNormal()">1x</button>
+        <button onclick="changeSpeedToTwice()">2x</button>
+        <button onclick="changeSpeedToFour()">4x</button>
+      </div>
+    </div>
+    <button class="button control-button" id="screenshot" onclick="screenshot()">📸</button>
+    <button class="button control-button" id="fullscreen" onclick="toggleFullscreen()">⇲</button>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

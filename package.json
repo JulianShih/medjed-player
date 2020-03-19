@@ -1,0 +1,21 @@
+{
+  "name": "medjed-player",
+  "version": "0.0.1",
+  "description": "An mp4 video player",
+  "homepage": "https://gitlab.com/arisan-boot-camp/medjed-player#readme",
+  "bugs": {
+    "url": "https://gitlab.com/arisan-boot-camp/medjed-player/issues"
+  },  
+  "license": "ISC",  
+  "author": "Antonina Shih <antoninas@arisan.io>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/arisan-boot-camp/medjed-player.git"
+  },
+  "scripts": {
+    "lint": "standard --verbose"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
